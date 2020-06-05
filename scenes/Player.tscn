@@ -6,7 +6,7 @@
 [ext_resource path="res://sprites/FRAME-2_playerShip3_green.png" type="Texture" id=4]
 [ext_resource path="res://sprites/player ocell.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 104, 32 )
 
 [sub_resource type="Animation" id=2]
@@ -84,7 +84,7 @@ visible = false
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
