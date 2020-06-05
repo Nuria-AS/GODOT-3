@@ -33,6 +33,7 @@ func _shoot():
 	get_tree().get_root().add_child(new_projectile)  #dos tipus de positions 1.postiton (local) 2.global. L'enemic es un child d'info, si posem position = globa sera una position local - set the parent of the projectile to be the root of the game
 	can_shoot = false #perque l'enemic no dispari continuament, seguit
 	timer.start()  #el timer, on hi ha posat l'interval entre trets
+	audio.set_volume_db(-20) #baixar/pujar el volum
 	audio.play()  #so quan dispara
 
 

@@ -32,6 +32,7 @@ func _process(delta):
 		get_parent().add_child(new_projectile)  #1.aixo fa que els trets no segueixin la linia de la posicio del player
 		new_projectile.position = position      #2.position es la posicio del player, i la new... es del projectil, aixi k el projectil surt de la nau (player)
 		timer.start()
+		audio.set_volume_db(-3) #baixar/pujar el volum
 		audio.play() #every time he shoots emits a sound - audio
 	
 	position.x = clamp(position.x, 0 + half_sprite_size, screen_size - half_sprite_size)
