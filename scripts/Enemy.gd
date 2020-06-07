@@ -2,8 +2,11 @@ extends Area2D
 
 
 export (PackedScene) var projectile
+export (PackedScene) var projectileBO
 export(AudioStreamSample) var shoot_audio  #perque el enemy pugui emetre dos sons (shoot & explosion)
 export(AudioStreamSample) var explosion
+export(AudioStreamSample) var shoot_audioBO
+
 
 onready var timer = $Timer
 onready var collision = $CollisionShape2D  #perque quan mori un enemic no morin tots sino el disparat
@@ -19,6 +22,7 @@ signal was_defeated
 
 func _ready():
 	audio.stream = shoot_audio  #el so s'emet cada vegada que dispara
+	audio.stream = shoot_audioBO
 
 func _process(delta):
 	if can_shoot:
@@ -28,13 +32,25 @@ func _process(delta):
 func _shoot():
 	if dead:
 		return
-	var new_projectile = projectile.instance()
+	var new_projectile
+
+	if rand_range(1, 100) <= 50:
+		new_projectile = projectile.instance()
+		audio.stream = shoot_audio
+		audio.set_volume_db(-20) #baixar/pujar el volum
+		audio.play()  #so quan dispara
+	else:
+		new_projectile = projectileBO.instance()
+		audio.stream = shoot_audioBO
+		audio.set_volume_db(-2) #baixar/pujar el volum
+		audio.play()  #so quan dispara
 	new_projectile.position = global_position  #POSICIÓ del projectil és igual a la posició de la nau de l'enemic - surt d'allà
 	get_tree().get_root().add_child(new_projectile)  #dos tipus de positions 1.postiton (local) 2.global. L'enemic es un child d'info, si posem position = globa sera una position local - set the parent of the projectile to be the root of the game
 	can_shoot = false #perque l'enemic no dispari continuament, seguit
 	timer.start()  #el timer, on hi ha posat l'interval entre trets
-	audio.set_volume_db(-20) #baixar/pujar el volum
-	audio.play()  #so quan dispara
+	timer.wait_time = rand_range(1, 5)
+
+
 
 
 

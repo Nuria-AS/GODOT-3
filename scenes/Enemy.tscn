@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemyRed5.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://audio/Explosion.wav" type="AudioStream" id=4]
 [ext_resource path="res://audio/gunshot-enemy.wav" type="AudioStream" id=5]
 [ext_resource path="res://sprites/enemy cotxe.png" type="Texture" id=6]
+[ext_resource path="res://scenes/EnemyGOODprojectile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://audio/so projectilBO.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 64 )
@@ -15,8 +17,10 @@ extents = Vector2( 32, 64 )
 ]]
 script = ExtResource( 1 )
 projectile = ExtResource( 3 )
+projectileBO = ExtResource( 7 )
 shoot_audio = ExtResource( 5 )
 explosion = ExtResource( 4 )
+shoot_audioBO = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

@@ -21,6 +21,7 @@ func _ready():
 	print(right_bound)
 	enemies_count = get_children().size()
 
+
 func _process(delta):
 	movement(delta)
 	position.x += speed * direction * delta

@@ -50,6 +50,10 @@ func add_damage(damage):
 		death_timer.start()
 		set_process(false)
 		sprite.queue_free()
+		
+func add_health(health):
+	if health >= 0:
+		health + 10
 
 
 func _on_DeathTimer_timeout():

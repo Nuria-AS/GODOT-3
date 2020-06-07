@@ -1,7 +1,7 @@
 extends Area2D
 
 export var speed = 450   #velocitat en que baixa el projectil
-export var health = 10   #damage que proboca al player
+export var health = 10   #health que proboca al player
 
 func _ready():
 	connect("body_entered", self, "_on_area_entered")
@@ -17,5 +17,5 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.name == "Player":
-		area.add_health()
+		area.add_health(health)
 		queue_free()

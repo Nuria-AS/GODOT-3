@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/playerShip3_green.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://audio/ShootPlayer.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/agilaFINAL.wav" type="AudioStream" id=3]
 [ext_resource path="res://sprites/FRAME-2_playerShip3_green.png" type="Texture" id=4]
 [ext_resource path="res://sprites/player ocell.png" type="Texture" id=5]
 
